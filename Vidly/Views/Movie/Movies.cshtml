@@ -1,0 +1,29 @@
+﻿
+@using Vidly.Models
+@model Vidly.ViewModel.RandomMoviesViewModel
+
+
+@{
+    ViewBag.Title = "Movies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Movies</th>
+            <th scope="col">Genre</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var movies in Model.Movies)
+        {
+            <tr class="table-active">
+                <td>@Html.ActionLink(movies.Name, "Movies/Details/" +movies.Id, "Movie")</td>
+                <td>@movies.Genres.Name</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
